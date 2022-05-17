@@ -1,29 +1,28 @@
 <template>
     <NuxtLayout>
-        <header>
-            <nav class="font-sans bg-gray-100 shadow-inner font-normal">
-                <ul class="nav-links">
-                    <nuxt-link to="/" tag="li"><a>Home</a></nuxt-link>
-                    <nuxt-link to="/posts" tag="li"><a>Posts</a></nuxt-link>
-                </ul>
-            </nav>
-        </header>
+    <header>
+      <nav class="nav bg-gray-100 shadow-xl">
+        <ul class="flex space-x-2 p-4 rounded-md text-xl bg-amber-100 text-amber-700 font-semibold">
+          <nuxt-link to="/" tag="li"><a>Home</a></nuxt-link>
+          <nuxt-link to="/posts" tag="li"><a>Posts</a></nuxt-link>
+        </ul>
+      </nav>
+    </header>
 
-        <section id="/posts" class="max-w-md mx-auto bg-purple-100 rounded-xl shadow-md overflow-hidden md:max-w-3xl">
-            <h1 class="font-extrabold mt-6 text-gray-500 text-2xl tracking-wide">Posts:</h1>
-            <div class="md:flex">
-                <!-- <NuxtChild :key="$route.params.id" /> -->
-                <p v-if="$fetchState.pending">Loading....</p>
-                <p v-else-if="$fetchState.error">Error while fetching posts</p>
-                <ul v-else class="p-8">
-                    <li v-for="(post, index) in posts" :key="index"
-                        class="block mt-3 p-2 text-lg font-normal leading-loose font-sans text-black">
-                        <NuxtLink v-bind:to="'/posts/' + post.id" class="p-2 rounded-md shadow-xl text-slate-500">
-                            {{ post.id }} . {{ post.title }}</NuxtLink>
-                    </li>
-                </ul>
+     <section id="/posts" class="mt-6 p-6"> 
+            <div class="p-8  bg-indigo-50 rounded-xl shadow-md md:block max-w-3xl mx-auto md:max-w-xxl mb-6">
+                <h1 class="text-center font-extrabold mb-6 text-gray-700 text-2xl tracking-wide">Posts:</h1>
+                    <p v-if="$fetchState.pending">Loading....</p>
+                    <p v-else-if="$fetchState.error">Error while fetching posts</p>
+                    <ul v-else>
+                        <li v-for="(post, index) in posts" :key="index"
+                            class="block mt-3 p-2 text-lg leading-loose font-sans text-black">
+                            <NuxtLink v-bind:to="'/posts/' + post.id" class="text-center p-4 mb-2 bg-white rounded-xl shadow-md text-amber-700">
+                                {{ post.id }} . {{ post.title }}</NuxtLink>
+                        </li>
+                    </ul>
             </div>
-        </section>
+        </section> -->
 
         <footer class="main-footer font-sans bg-gray-100 shadow-inner">
             <div>
@@ -47,25 +46,3 @@ export default {
     }
 }
 </script>
-
-<style>
-h1 {
-    text-align: center;
-}
-
-.main-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5%;
-}
-
-.main-footer p {
-    display: block;
-    margin: 0 auto;
-    font-size: small;
-    padding: 0.7rem;
-    text-align: center;
-}
-</style>

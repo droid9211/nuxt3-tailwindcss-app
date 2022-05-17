@@ -1,18 +1,18 @@
 <template>
   <NuxtLayout>
     <header>
-      <nav class="font-sans bg-gray-100 shadow-inner">
-        <ul class="nav-links mb-2">
+      <nav class="nav bg-gray-100 shadow-xl">
+        <ul class="flex space-x-2 p-4 rounded-md text-xl bg-amber-100 text-amber-700 font-semibold">
           <nuxt-link to="/" tag="li"><a>Home</a></nuxt-link>
           <nuxt-link to="/posts" tag="li"><a>Posts</a></nuxt-link>
         </ul>
       </nav>
     </header>
 
-    <section id="/" class=" pb-6 max-w-md mx-auto bg-purple-100 rounded-xl shadow-md overflow-hidden md:max-w-xl">
-      <div class="md:block mb-6">
-        <h1 class="font-extrabold mt-6 mb-6 ml-6 text-gray-500 text-2xl tracking-wide">Greetings! Good day!</h1>
-        <p class="p-6 mb-6">Here are the steps which I've made in building the current blog-type app: <br>
+    <section id="/" class="mt-6 p-8">
+      <div class="md:block pl-6 mb-6 max-w-4xl mx-auto bg-indigo-100 rounded-l shadow-md overflow-hidden md:max-w-xxl bg-amber-50 text-amber-700 mb-6">
+        <h1 class="text-center font-extrabold mt-6 mb-6 text-gray-700 text-2xl tracking-wide">Greetings! Good day!</h1>
+        <p class="p-8 mb-6">Here are the steps which I've made in building the current blog-type app: <br>
           <b>1. / home</b> <br>
           Home page includes 3 components, which are shared with all the other pages: <br>
           - Header with Navigation <br>
@@ -49,18 +49,28 @@
 </template>
 
 <style>
-.nav-links {
-  list-style: none;
-  margin: 0;
-  margin-bottom: 2rem;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
+.nav ul {
+  text-align: center;
   justify-content: space-evenly;
-  align-items: center;
 }
 
-.nav-links a:hover {
-  color: rgb(122, 83, 231);
+a:hover {
+  color: rgb(52, 174, 235);
+}
+
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+}
+
+.main-footer p {
+  display: block;
+  margin: 0 auto;
+  font-size: small;
+  padding: 0.7rem;
+  text-align: center;
 }
 </style>
